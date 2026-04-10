@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minha Subtração</title>
+</head>
+<body>
+
+    <input type="number" id="n1" placeholder="Número 1">
+    <input type="number" id="n2" placeholder="Número 2">
+    <button onclick="subtrair()">Subtrair</button>
+
+    <script>
+        function subtrair() {
+            
+            let n1 = Number(document.getElementById("n1").value);
+            let n2 = Number(document.getElementById("n2").value);
+            
+            
+            let resultado = n1 - n2;
+
+        
+            alert("O resultado da subtração é: " + resultado);
+        }
+    </script>
+
+</body>
+</html>
