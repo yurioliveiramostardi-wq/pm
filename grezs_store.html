@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRESZ_STORE | Air Max Store</title>
+
+    <script src="https://tailwindcss.com"></script>
+    <style>
+        @import url('https://googleapis.com');
+        body { font-family: 'Inter', sans-serif; background-color: #101010; color: white; }
+        .font-tn { font-family: 'Archivo Black', sans-serif; text-transform: uppercase; font-style: italic; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .card-shadow:hover { box-shadow: 0 0 30px rgba(255, 102, 0, 0.2); border-color: #f60; }
+    </style>
+</head>
+<body>
+
+    <header>
+         <h1>GRESZ_STORE</h1>
+    </header>
+
+
+<section class="produtos" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px;">
+    
+    
+    <div class="produto glass p-4 rounded-xl flex flex-col items-center">
+        <img src="branco.png" width="270">
+        <h2 class="font-bold">Air Max TN Plus Triple White</h2>
+        <p class="text-orange-500 font-bold">R$ 260,90</p>
+        <button onclick="adicionarCarrinho('AIR MAX TN PLUS TRIPLE WHITE', 260.90)" class="bg-orange-600 px-4 py-2 rounded mt-2">Comprar</button>
+    </div>
+
+    <div class="produto glass p-4 rounded-xl flex flex-col items-center">
+        <img src="blka.png" width="270">
+        <h2 class="font-bold">Air Max TN Plus Triple Black</h2>
+        <p class="text-orange-500 font-bold">R$ 290,90</p>
+        <button onclick="adicionarCarrinho('AIR MAX TN PLUS TRIPLE BLACK', 290.90)" class="bg-orange-600 px-4 py-2 rounded mt-2">Comprar</button>
+    </div>
+
+    <div class="produto glass p-4 rounded-xl flex flex-col items-center">
+        <img src="purple.png" width="270">
+        <h2 class="font-bold">Air Max TN Plus Voltage Purple</h2>
+        <p class="text-orange-500 font-bold">R$ 290,90</p>
+        <button onclick="adicionarCarrinho('AIR MAX TN PLUS VOLTAGE PURPLE', 290.90)" class="bg-orange-600 px-4 py-2 rounded mt-2">Comprar</button>
+    </div>
+
+    <div class="produto glass p-4 rounded-xl flex flex-col items-center">
+        <img src="sunset.png" width="270">
+        <h2 class="font-bold">Air Max TN Plus Sunset</h2>
+        <p class="text-orange-500 font-bold">R$ 290,90</p>
+        <button onclick="adicionarCarrinho('AIR MAX TN PLUS SUNSET', 290.90)" class="bg-orange-600 px-4 py-2 rounded mt-2">Comprar</button>
+    </div>
+
+    <div class="produto glass p-4 rounded-xl flex flex-col items-center">
+        <img src="coisa linda.png" width="270">
+        <h2 class="font-bold">Air Max TN Plus Atlanta</h2>
+        <p class="text-orange-500 font-bold">R$ 500,00</p>
+        <button onclick="adicionarCarrinho('AIR MAX TN PLUS ATLANTA', 500.00)" class="bg-orange-600 px-4 py-2 rounded mt-2">Comprar</button>
+    </div>
+
+ <div class="produto glass p-4 rounded-xl flex flex-col items-center">
+        <img src="micro.png" width="270">
+        <h2 class="font-bold">Adidas Microbaunce</h2>
+        <p class="text-orange-500 font-bold">R$ 950,00</p>
+        <button onclick="adicionarCarrinho('ADIDAS MICROBAUNCE', 950.00)" class="bg-orange-600 px-4 py-2 rounded mt-2">Comprar</button>
+</div>
+
+<div class="produto glass p-4 rounded-xl flex flex-col items-center">
+        <img src="bounce.png" width="270">
+        <h2 class="font-bold">Adidas Microbaunce Bright Royal</h2>
+        <p class="text-orange-500 font-bold">R$ 950,00</p>
+        <button onclick="adicionarCarrinho('ADIDAS MICROBAUNCE BRIGHT ROYAL', 950.00)" class="bg-orange-600 px-4 py-2 rounded mt-2">Comprar</button>
+</div>
+
+<div class="produto glass p-4 rounded-xl flex flex-col items-center">
+        <img src="tiempo.png" width="270">
+        <h2 class="font-bold">Nike Air Max Plus Tiempo Wolf grey</h2>
+        <p class="text-orange-500 font-bold">R$ 1000,00</p>
+        <button onclick="adicionarCarrinho('NIKE AIR MAX PLUS TIEMPO WOLF GREY', 1000.00)" class="bg-orange-600 px-4 py-2 rounded mt-2">Comprar</button>
+</div>
+
+<div class="produto glass p-4 rounded-xl flex flex-col items-center">
+        <img src="tiempo black.png" width="270">
+        <h2 class="font-bold">Nike Air Max Plus Tiempo Black</h2>
+        <p class="text-orange-500 font-bold">R$ 1000,00</p>
+        <button onclick="adicionarCarrinho('NIKE AIR MAX PLUS TIEMPO BLACK', 1000.00)" class="bg-orange-600 px-4 py-2 rounded mt-2">Comprar</button>
+</div>
+
+<div class="produto glass p-4 rounded-xl flex flex-col items-center">
+        <img src="BLA.png" width="270">
+        <h2 class="font-bold">Nike Air Max Plus III Black White</h2>
+        <p class="text-orange-500 font-bold">R$ 350,00</p>
+        <button onclick="adicionarCarrinho('NIKE AIR MAX PLUS III BLACK WHITE', 350.00)" class="bg-orange-600 px-4 py-2 rounded mt-2">Comprar</button>
+</div>
+
+<div class="produto glass p-4 rounded-xl flex flex-col items-center">
+        <img src="pimento.png" width="270">
+        <h2 class="font-bold">Nike Air Max Plus Pimento </h2>
+        <p class="text-orange-500 font-bold">R$ 550,00</p>
+        <button onclick="adicionarCarrinho('NIKE AIR MAX PLUS PIMENTO', 550.00)" class="bg-orange-600 px-4 py-2 rounded mt-2">Comprar</button>
+</div>
+
+<div class="produto glass p-4 rounded-xl flex flex-col items-center">
+        <img src="reverse.png" width="270">
+        <h2 class="font-bold">Nike Air Max Plus Reverse Sunset</h2>
+        <p class="text-orange-500 font-bold">R$ 250,00</p>
+        <button onclick="adicionarCarrinho('NIKE AIR MAX PLUS REVERSE SUNSET', 250.00)" class="bg-orange-600 px-4 py-2 rounded mt-2">Comprar</button>
+</div>
+
+
+
+    
+
+    <div class="produto glass p-4 rounded-xl flex flex-col items-center">
+        <img src="sergio.png" width="270">
+        <h2 class="font-bold">Conjunto Sergio Tacchini</h2>
+        <p class="text-orange-500 font-bold">R$ 800,00</p>
+        <button onclick="adicionarCarrinho('CONJUNTO SERGIO TACCHINI', 800.00)" class="bg-orange-600 px-4 py-2 rounded mt-2">Comprar</button>
+    </div>
+
+    <div class="produto glass p-4 rounded-xl flex flex-col items-center">
+        <img src="sergio2.png" width="270">
+        <h2 class="font-bold">Conjunto Sergio Tacchini Blue royal</h2>
+        <p class="text-orange-500 font-bold">R$ 950,00</p>
+        <button onclick="adicionarCarrinho('CONJUNTO SERGIO TACCHINI BLUE ROYAL', 950.00)" class="bg-orange-600 px-4 py-2 rounded mt-2">Comprar</button>
+    </div>
+
+    <div class="produto glass p-4 rounded-xl flex flex-col items-center">
+        <img src="milan.png" width="270">
+        <h2 class="font-bold">Conjunto AC Milan</h2>
+        <p class="text-orange-500 font-bold">R$ 950,00</p>
+        <button onclick="adicionarCarrinho('CONJUNTO AC MILAN', 950.00)" class="bg-orange-600 px-4 py-2 rounded mt-2">Comprar</button>
+    </div>
+
+    <div class="produto glass p-4 rounded-xl flex flex-col items-center">
+        <img src="oly.png" width="270">
+        <h2 class="font-bold">Conjunto Olympique Marseille</h2>
+        <p class="text-orange-500 font-bold">R$ 950,00</p>
+        <button onclick="adicionarCarrinho('CONJUNTO OLYMPIQUE MARSEILLE', 950.00)" class="bg-orange-600 px-4 py-2 rounded mt-2">Comprar</button>
+    </div>
+    <div class="produto glass p-4 rounded-xl flex flex-col items-center">
+        <img src="arsenal.png" width="270">
+        <h2 class="font-bold">Conjunto Arsenal 2006</h2>
+        <p class="text-orange-500 font-bold">R$ 750,00</p>
+        <button onclick="adicionarCarrinho('CONJUNTO ARSENAL 2006', 750.00)" class="bg-orange-600 px-4 py-2 rounded mt-2">Comprar</button>
+    </div>
+    <div class="produto glass p-4 rounded-xl flex flex-col items-center">
+        <img src="espanha.png" width="270">
+        <h2 class="font-bold">Conjunto Espanha 2014</h2>
+        <p class="text-orange-500 font-bold">R$ 950,00</p>
+        <button onclick="adicionarCarrinho('CONJUNTO ESPANHA 2014', 950.00)" class="bg-orange-600 px-4 py-2 rounded mt-2">Comprar</button>
+    </div>
+
+
+</section>
