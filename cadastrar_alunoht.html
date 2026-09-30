@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Teste Cadastro de Aluno</title>
+</head>
+<body>
+
+    <h1>Cadastrar aluno</h1>
+
+    <form id="formAluno">
+
+        <label>Nome:</label><br>
+        <input type="text" id="nome" required><br><br>
+
+        <label>Data de nascimento:</label><br>
+        <input type="date" id="data_nascimento"><br><br>
+
+        <label>CPF:</label><br>
+        <input type="text" id="cpf"><br><br>
+
+        <label>Telefone:</label><br>
+        <input type="text" id="telefone"><br><br>
+
+        <label>E-mail:</label><br>
+        <input type="email" id="email"><br><br>
+
+        <label>Endereço:</label><br>
+        <input type="text" id="endereco"><br><br>
+
+        <button type="submit">Cadastrar aluno</button>
+
+    </form>
+
+    <h2>Resultado:</h2>
+
+    <pre id="resultado"></pre>
+
+    <script>
+
+        document.getElementById("formAluno").addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+            const dados = {
+                nome: document.getElementById("nome").value,
+                data_nascimento: document.getElementById("data_nascimento").value,
+                cpf: document.getElementById("cpf").value,
+                telefone: document.getElementById("telefone").value,
+                email: document.getElementById("email").value,
+                endereco: document.getElementById("endereco").value
+            };
+
+            try {
+
+                const resposta = await fetch("cadastrar_aluno.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(dados)
+                });
+
+                const resultado = await resposta.json();
+
+                document.getElementById("resultado").textContent =
+                    JSON.stringify(resultado, null, 2);
+
+            } catch (erro) {
+
+                document.getElementById("resultado").textContent =
+                    "Erro: " + erro.message;
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
