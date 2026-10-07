@@ -1,0 +1,81 @@
+<?php
+header("Content-Type: application/json; charset=UTF-8");
+require_once "conexao.php";
+
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    http_response_code(405);
+echo json_encode([
+    "sucesso" => false,
+    "mensagem" => "Método não permitido. Use POST."
+], JSON_UNESCAPED_UNICODE);
+exit;
+}
+
+$dados = json_decode(file_get_contents("php://input"), true);
+
+if (!is_array($dados)) {
+    http_response_code(400);
+echo json_encode([
+    "sucesso" => false,
+    "mensagem" => "Envie os dados em JSON."
+], JSON_UNESCAPED_UNICODE);
+exit;
+}
+
+    if (!isset($dados["nome"]) || trim((string)$dados["nome"]) === "") {
+        http_response_code(400);
+echo json_encode([
+    "sucesso" => false,
+    "mensagem" => "O campo nome é obrigatório."
+], JSON_UNESCAPED_UNICODE);
+exit;
+    }
+
+    if (!isset($dados["data_nascimento"]) || trim((string)$dados["data_nascimento"]) === "") {
+        http_response_code(400);
+echo json_encode([
+    "sucesso" => false,
+    "mensagem" => "O campo data_nascimento é obrigatório."
+], JSON_UNESCAPED_UNICODE);
+exit;
+    }
+
+    if (!isset($dados["cpf"]) || trim((string)$dados["cpf"]) === "") {
+        http_response_code(400);
+echo json_encode([
+    "sucesso" => false,
+    "mensagem" => "O campo cpf é obrigatório."
+], JSON_UNESCAPED_UNICODE);
+exit;
+    }
+
+try {
+    $sql = "INSERT INTO `aluno` (`nome`, `data_nascimento`, `cpf`, `telefone`, `email`, `endereco`) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        $dados["nome"] ?? null,
+        $dados["data_nascimento"] ?? null,
+        $dados["cpf"] ?? null,
+        $dados["telefone"] ?? null,
+        $dados["email"] ?? null,
+        $dados["endereco"] ?? null
+    ]);
+    $id = $pdo->lastInsertId();
+
+    $stmt = $pdo->prepare("SELECT * FROM `aluno` WHERE `id_aluno` = ?");
+    $stmt->execute([$id]);
+    $registro = $stmt->fetch();
+
+    echo json_encode([
+        "sucesso" => true,
+        "mensagem" => "Aluno cadastrado com sucesso!",
+        "aluno" => $registro
+    ], JSON_UNESCAPED_UNICODE);
+} catch (PDOException $e) {
+    http_response_code(500);
+    echo json_encode([
+        "sucesso" => false,
+        "mensagem" => "Erro ao cadastrar aluno.",
+        "erro" => $e->getMessage()
+    ], JSON_UNESCAPED_UNICODE);
+}
